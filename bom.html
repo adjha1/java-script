@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript BOM Properties</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #eeeeee;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    .button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript BOM (Browser Object Model) Properties</h1>
+
+  <div>
+    <button class="button" onclick="showWindowProperties()">Show Window Properties</button>
+    <button class="button" onclick="showNavigatorProperties()">Show Navigator Properties</button>
+    <button class="button" onclick="showLocationProperties()">Show Location Properties</button>
+    <button class="button" onclick="showHistoryProperties()">Show History Properties</button>
+    <button class="button" onclick="showScreenProperties()">Show Screen Properties</button>
+  </div>
+
+  <div id="result" class="result"></div>
+
+  <script>
+    // Show Window Properties (Window Object)
+    function showWindowProperties() {
+      const result = `
+        <h3>Window Object Properties:</h3>
+        <ul>
+          <li><strong>Window.innerWidth:</strong> ${window.innerWidth}</li>
+          <li><strong>Window.innerHeight:</strong> ${window.innerHeight}</li>
+          <li><strong>Window.outerWidth:</strong> ${window.outerWidth}</li>
+          <li><strong>Window.outerHeight:</strong> ${window.outerHeight}</li>
+          <li><strong>Window.location.href:</strong> ${window.location.href}</li>
+          <li><strong>Window.location.hostname:</strong> ${window.location.hostname}</li>
+        </ul>
+      `;
+      document.getElementById('result').innerHTML = result;
+    }
+
+    // Show Navigator Properties (Navigator Object)
+    function showNavigatorProperties() {
+      const result = `
+        <h3>Navigator Object Properties:</h3>
+        <ul>
+          <li><strong>Navigator.appName:</strong> ${navigator.appName}</li>
+          <li><strong>Navigator.appVersion:</strong> ${navigator.appVersion}</li>
+          <li><strong>Navigator.platform:</strong> ${navigator.platform}</li>
+          <li><strong>Navigator.userAgent:</strong> ${navigator.userAgent}</li>
+          <li><strong>Navigator.language:</strong> ${navigator.language}</li>
+        </ul>
+      `;
+      document.getElementById('result').innerHTML = result;
+    }
+
+    // Show Location Properties (Location Object)
+    function showLocationProperties() {
+      const result = `
+        <h3>Location Object Properties:</h3>
+        <ul>
+          <li><strong>Location.href:</strong> ${window.location.href}</li>
+          <li><strong>Location.protocol:</strong> ${window.location.protocol}</li>
+          <li><strong>Location.hostname:</strong> ${window.location.hostname}</li>
+          <li><strong>Location.pathname:</strong> ${window.location.pathname}</li>
+          <li><strong>Location.search:</strong> ${window.location.search}</li>
+          <li><strong>Location.hash:</strong> ${window.location.hash}</li>
+        </ul>
+      `;
+      document.getElementById('result').innerHTML = result;
+    }
+
+    // Show History Properties (History Object)
+    function showHistoryProperties() {
+      const result = `
+        <h3>History Object Properties:</h3>
+        <ul>
+          <li><strong>History.length:</strong> ${window.history.length}</li>
+          <li><strong>History.state:</strong> ${JSON.stringify(window.history.state)}</li>
+        </ul>
+        <button class="button" onclick="goBack()">Go Back</button>
+        <button class="button" onclick="goForward()">Go Forward</button>
+      `;
+      document.getElementById('result').innerHTML = result;
+    }
+
+    function goBack() {
+      window.history.back();
+    }
+
+    function goForward() {
+      window.history.forward();
+    }
+
+    // Show Screen Properties (Screen Object)
+    function showScreenProperties() {
+      const result = `
+        <h3>Screen Object Properties:</h3>
+        <ul>
+          <li><strong>Screen.width:</strong> ${screen.width}</li>
+          <li><strong>Screen.height:</strong> ${screen.height}</li>
+          <li><strong>Screen.availWidth:</strong> ${screen.availWidth}</li>
+          <li><strong>Screen.availHeight:</strong> ${screen.availHeight}</li>
+          <li><strong>Screen.colorDepth:</strong> ${screen.colorDepth}</li>
+          <li><strong>Screen.pixelDepth:</strong> ${screen.pixelDepth}</li>
+        </ul>
+      `;
+      document.getElementById('result').innerHTML = result;
+    }
+  </script>
+
+</body>
+</html>
