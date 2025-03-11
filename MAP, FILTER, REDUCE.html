@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Methods: map, filter, reduce</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+
+    .button-container {
+      margin: 20px 0;
+    }
+
+    .result {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #eee;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Array Methods: map, filter, reduce</h1>
+
+  <div class="button-container">
+    <button class="button" onclick="demonstrateMap()">Demonstrate `map()`</button>
+    <button class="button" onclick="demonstrateFilter()">Demonstrate `filter()`</button>
+    <button class="button" onclick="demonstrateReduce()">Demonstrate `reduce()`</button>
+  </div>
+
+  <div id="result" class="result"></div>
+
+  <script>
+    // Sample array of numbers
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    // Demonstrate map()
+    function demonstrateMap() {
+      const mapped = numbers.map(num => num * 2); // Multiply each element by 2
+      document.getElementById('result').textContent = `map() Result: [${mapped.join(', ')}]`;
+    }
+
+    // Demonstrate filter()
+    function demonstrateFilter() {
+      const filtered = numbers.filter(num => num % 2 === 0); // Filter even numbers
+      document.getElementById('result').textContent = `filter() Result: [${filtered.join(', ')}]`;
+    }
+
+    // Demonstrate reduce()
+    function demonstrateReduce() {
+      const sum = numbers.reduce((accumulator, num) => accumulator + num, 0); // Sum all numbers
+      document.getElementById('result').textContent = `reduce() Result (Sum): ${sum}`;
+    }
+  </script>
+
+</body>
+</html>
