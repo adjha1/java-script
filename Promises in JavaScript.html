@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promises in JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .button-container {
+      margin: 20px 0;
+    }
+
+    .result {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #eee;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Promises Example</h1>
+
+  <div class="button-container">
+    <button class="button" onclick="demonstratePromise()">Demonstrate Promise</button>
+  </div>
+
+  <div id="result" class="result"></div>
+
+  <script>
+    // A function that returns a promise
+    function fetchData() {
+      return new Promise((resolve, reject) => {
+        // Simulating an asynchronous operation with setTimeout
+        setTimeout(() => {
+          const isSuccess = true;  // Change this to false to simulate failure
+
+          if (isSuccess) {
+            resolve('Data fetched successfully!');
+          } else {
+            reject('Failed to fetch data!');
+          }
+        }, 2000); // Simulate 2 seconds delay
+      });
+    }
+
+    // Function to demonstrate promise usage
+    function demonstratePromise() {
+      document.getElementById('result').textContent = 'Fetching data... Please wait.';
+
+      fetchData()
+        .then(result => {
+          // Handle success
+          document.getElementById('result').textContent = `Success: ${result}`;
+        })
+        .catch(error => {
+          // Handle failure
+          document.getElementById('result').textContent = `Error: ${error}`;
+        });
+    }
+  </script>
+
+</body>
+</html>
