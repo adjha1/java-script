@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Callback Functions in JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .button-container {
+      margin: 20px 0;
+    }
+
+    .result {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #eee;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Callback Functions Example</h1>
+
+  <div class="button-container">
+    <button class="button" onclick="demonstrateCallback()">Demonstrate Callback</button>
+  </div>
+
+  <div id="result" class="result"></div>
+
+  <script>
+    // Simulate an asynchronous task
+    function fetchData(callback) {
+      setTimeout(function() {
+        const data = 'Data fetched successfully!';
+        callback(data); // Once data is "fetched", call the callback function
+      }, 2000); // Simulate a 2-second delay
+    }
+
+    // Callback function that will be passed to fetchData
+    function handleData(data) {
+      document.getElementById('result').textContent = `Callback function executed: ${data}`;
+    }
+
+    // Function to demonstrate callback usage
+    function demonstrateCallback() {
+      document.getElementById('result').textContent = 'Fetching data, please wait...';
+      fetchData(handleData); // Passing handleData as the callback function
+    }
+  </script>
+
+</body>
+</html>
