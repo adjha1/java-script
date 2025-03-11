@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Access Methods</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .highlight {
+      color: red;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: #4CAF50;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>DOM Access Methods </h1>
+
+  <div id="box1" class="box">Box 1</div>
+  <div id="box2" class="box">Box 2</div>
+  <div class="box">Box 3</div>
+  <div class="box">Box 4</div>
+
+  <button onclick="accessElementById()">Access Element by ID</button>
+  <button onclick="accessElementsByClassName()">Access Elements by Class Name</button>
+  <button onclick="accessElementsByTagName()">Access Elements by Tag Name</button>
+  <button onclick="accessElementByQuerySelector()">Access Element by Query Selector</button>
+  <button onclick="accessElementsByQuerySelectorAll()">Access Elements by Query Selector All</button>
+  <button onclick="changeAttributes()">Change Attributes</button>
+  <button onclick="changeContent()">Change Content</button>
+  <button onclick="toggleClass()">Toggle Class</button>
+
+  <div id="result"></div>
+
+  <script>
+    // Access element by ID
+    function accessElementById() {
+      const box = document.getElementById('box1');
+      box.style.backgroundColor = 'blue'; // Change background color
+      box.textContent = 'Accessed by ID'; // Change text content
+      document.getElementById('result').textContent = 'Accessed Box by ID: ' + box.id;
+    }
+
+    // Access elements by class name
+    function accessElementsByClassName() {
+      const boxes = document.getElementsByClassName('box');
+      for (let i = 0; i < boxes.length; i++) {
+        boxes[i].style.border = '2px solid black'; // Add border to all boxes
+      }
+      document.getElementById('result').textContent = 'All boxes have been highlighted.';
+    }
+
+    // Access elements by tag name
+    function accessElementsByTagName() {
+      const divs = document.getElementsByTagName('div');
+      for (let i = 0; i < divs.length; i++) {
+        divs[i].style.padding = '20px'; // Add padding to all divs
+      }
+      document.getElementById('result').textContent = 'All div elements have been modified.';
+    }
+
+    // Access element by query selector (first matching element)
+    function accessElementByQuerySelector() {
+      const box = document.querySelector('.box');
+      box.style.backgroundColor = 'orange'; // Change background color of the first .box
+      document.getElementById('result').textContent = 'First box selected by querySelector.';
+    }
+
+    // Access elements by querySelectorAll (all matching elements)
+    function accessElementsByQuerySelectorAll() {
+      const boxes = document.querySelectorAll('.box');
+      boxes.forEach((box, index) => {
+        box.style.backgroundColor = index % 2 === 0 ? 'purple' : 'yellow'; // Alternate color for each box
+      });
+      document.getElementById('result').textContent = 'All boxes selected by querySelectorAll have alternating colors.';
+    }
+
+    // Change element attributes
+    function changeAttributes() {
+      const box2 = document.getElementById('box2');
+      box2.setAttribute('data-custom', 'Changed Attribute');
+      document.getElementById('result').textContent = 'Attribute "data-custom" updated for Box 2.';
+    }
+
+    // Change content of elements
+    function changeContent() {
+      const box = document.getElementById('box1');
+      box.innerHTML = '<strong>New Content</strong>'; // Change content to HTML
+      document.getElementById('result').textContent = 'Content of Box 1 changed using innerHTML.';
+    }
+
+    // Toggle class of an element
+    function toggleClass() {
+      const box3 = document.querySelectorAll('.box')[2]; // Select the third box
+      box3.classList.toggle('highlight'); // Toggle the 'highlight' class
+      document.getElementById('result').textContent = 'Class "highlight" toggled on Box 3.';
+    }
+  </script>
+
+</body>
+</html>
