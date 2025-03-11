@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alert, Prompt, Confirm Example</title>
+</head>
+<body>
+
+  <h1>JavaScript Alert, Prompt, and Confirm</h1>
+  
+  <button onclick="showAlert()">Show Alert</button>
+  <button onclick="getUserInput()">Get User Input (Prompt)</button>
+  <button onclick="askConfirmation()">Ask Confirmation</button>
+
+  <script>
+    // Show an alert message
+    function showAlert() {
+      alert("This is an alert message!");
+    }
+
+    // Prompt the user to enter their name
+    function getUserInput() {
+      let userName = prompt("Please enter your name:", "Guest");
+      if (userName !== null) {
+        alert("Hello, " + userName + "!");
+      } else {
+        alert("You canceled the prompt.");
+      }
+    }
+
+    // Ask the user for confirmation
+    function askConfirmation() {
+      let userConfirmed = confirm("Do you want to proceed?");
+      if (userConfirmed) {
+        alert("You clicked OK, proceeding...");
+      } else {
+        alert("You clicked Cancel, stopping...");
+      }
+    }
+  </script>
+
+</body>
+</html>
