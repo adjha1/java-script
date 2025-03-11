@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrow Functions in JavaScript</title>
+</head>
+<body>
+
+  <h1>Arrow Functions in JavaScript</h1>
+
+  <div id="result"></div>
+
+  <script>
+    // Traditional function expression
+    const traditionalFunction = function(a, b) {
+      return a + b;
+    };
+
+    // Arrow function equivalent
+    const arrowFunction = (a, b) => a + b;
+
+    // Showing results in the document
+    document.getElementById('result').innerHTML = `
+      <p><strong>Traditional Function Output:</strong> ${traditionalFunction(5, 3)}</p>
+      <p><strong>Arrow Function Output:</strong> ${arrowFunction(5, 3)}</p>
+    `;
+
+    // Another example with a single parameter
+    const square = x => x * x;
+
+    console.log('Square of 5 (Arrow Function):', square(5));
+
+    // Example with no parameters
+    const greet = () => "Hello, Arrow Functions!";
+    console.log(greet());
+
+    // Using arrow functions in an array method (forEach)
+    const numbers = [1, 2, 3, 4, 5];
+    const doubleNumbers = numbers.map(num => num * 2);
+    console.log('Doubled Numbers:', doubleNumbers);
+
+    // Example with 'this' inside an arrow function vs a traditional function
+    const obj = {
+      name: "Arrow Function Example",
+      regularFunction: function() {
+        console.log("Regular Function: ", this.name); // 'this' refers to the object
+      },
+      arrowFunction: () => {
+        console.log("Arrow Function: ", this.name); // 'this' does not refer to the object
+      }
+    };
+
+    obj.regularFunction();  // "Arrow Function Example"
+    obj.arrowFunction();    // undefined, because 'this' does not refer to 'obj'
+
+  </script>
+
+</body>
+</html>
