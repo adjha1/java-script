@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bitwise NOT (~) Operation Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f4f4f9;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+    .button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    .button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>tilde function</h1>
+  <p>Click the button to apply the Bitwise NOT (~) operator on the number 5.</p>
+
+  <button class="button" onclick="applyBitwiseNot()">Apply Bitwise NOT (~) to 5</button>
+
+  <div id="result" class="result"></div>
+
+  <script>
+    function applyBitwiseNot() {
+      const number = 5;
+      const result = ~number; // Apply Bitwise NOT (~) to the number
+      document.getElementById('result').innerHTML = `The result of ~${number} is: ${result}`;
+    }
+  </script>
+
+</body>
+</html>
